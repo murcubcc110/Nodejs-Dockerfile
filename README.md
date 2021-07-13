@@ -14,19 +14,21 @@ nodejs + express + mysql による web アプリケーション作成演習用�
   https://github.com/murcubcc110/Ubuntu-Docker/blob/main/README.md
 
 ### Docker環境がある場合は
-- docker-compose のインストール  
+
+1. docker-compose のインストール  
   https://docs.docker.jp/compose/install.html#linux
 
-
-
-
-
-1. Dockerfileをダウンロード
-
-2. イメージをビルド
+1. Dockerfile をダウンロード
    ```bash
-   # [my-python] でビルド
-   $ docker build -t my-python .
-   # [my-container] でコンテナ起動（ローカル環境：~/MyDocker/workをDocker内：/workspace へマウント）
-   $ docker run -it -p 8888:8888 -v ~/MyDocker/work:/workspace --name my-container my-python
+   $ mkdir ./nodejs
+   $ cd ./nodejs
+   $ git init
+   $ git clone https://github.com/murcubcc110/Nodejs-Dockerfile.git
    ```
+
+1. イメージをビルド
+   ```bash
+   $ cd ./Nodejs-Dockerfile
+   $ docker-compose build
+   ```
+
