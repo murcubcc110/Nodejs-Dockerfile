@@ -14,6 +14,12 @@ nodejs + express + mysql による web アプリケーション作成演習用�
   https://github.com/murcubcc110/Ubuntu-Docker/blob/main/README.md
 
 ### Docker環境がある場合は
+- docker-compose のインストール  
+  https://docs.docker.jp/compose/install.html#linux
+
+
+
+
 
 1. Dockerfileをダウンロード
 
