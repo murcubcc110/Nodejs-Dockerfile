@@ -1,0 +1,46 @@
+version: '3'
+services:
+  webserver:
+    build: .
+    image: almalinux:latest
+    container_name: almalinx
+    tty: true
+    volumes:
+      - ./workspace:/workspace
+    ports:
+      - "8080:3000"
+    env_file: ./app.env
+    environment:
+      - LANG=ja_JP.UTF-8
+      - LANGUAGE=ja_JP:ja
+      - LC_ALL=ja_JP.UTF-8
+      - TZ=Asia/Tokyo
+      - NODE_ENV=development
+      - DEBUG=app:*
+    networks:
+      - backend
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    tty: true
+    volumes:
+      - ./mysql/conf:/etc/mysql/conf.d/:ro
+      - ./mysqldata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    env_file: ./mysql/mysql.env
+    environment:
+      - TZ=Asia/Tokyo
+    networks:
+      - backend
+
+networks:
+  default:
+    external:
+      name: bridge
+  backend:
+    name: docker.internal
+
+
+
