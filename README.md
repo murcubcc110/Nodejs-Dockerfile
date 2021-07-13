@@ -32,3 +32,18 @@ nodejs + express + mysql による web アプリケーション作成演習用�
    $ docker-compose build
    ```
 
+1. コンテナ起動
+   ```bash
+   $ docker-compose up -d
+   ```
+
+1. コンテナ接続確認
+   ```bash
+   # mysql サーバ接続確認
+   # mysql> が表示されればOK
+   $ docker-compose exec mysql mysql -uroot -ppasswd
+   # webserver サーバ接続確認
+   $ docker-compose exec webserver bash
+   ```
+
+
